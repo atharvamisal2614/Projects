@@ -1,57 +1,78 @@
-// var randomNumber1=Math.floor(Math.random()*6)+1;
-
-// var randomDiceImage = "dice" + randomNumber1 + ".png";
-
-// var randomImageSource ="images/" + randomDiceImage;
-
-// var image1= document.querySelectorAll("img")[0];
-
-// image1.setAttribute("src", randomImageSource);
+// document.querySelectorAll("button")[0].addEventListener("click",handleClick);
+// document.querySelectorAll("button")[1].addEventListener("click",handleClick);
+// document.querySelectorAll("button")[2].addEventListener("click",handleClick);
+// document.querySelectorAll("button")[3].addEventListener("click",handleClick);
+// document.querySelectorAll("button")[4].addEventListener("click",handleClick);
+// document.querySelectorAll("button")[5].addEventListener("click",handleClick);
+// document.querySelectorAll("button")[6].addEventListener("click",handleClick);
 
 
-// var randomNumber2=Math.floor(Math.random()*6)+1;
-
-// var randomImageSource2 = "images/dice" + randomNumber2 + ".png";
-
-// document.querySelectorAll("img")[1].setAttribute("src",randomImageSource2);
-
-// if(randomNumber1>randomNumber2){
-//     document.querySelector("h1").innerHTML="🚩player 1 Wins!";
-// }
-// else if(randomNumber2>randomNumber1){
-//     document.querySelector("h1").innerHTML="player 2 Wins! 🚩";
-// }
-// else{
-//     document.querySelector("h1").innerHTML="🙂 Maths Draw!.."
-// }
 
 
-//Dice 1
-var randomNumber1 = Math.floor(Math.random()*6)+1;
 
-var randomDiceImage1 = "images/dice" + randomNumber1 + ".png";
+var numberOfButton = document.querySelectorAll(".drum").length;
 
-var query = document.querySelectorAll("img")[0];
+for(var i=0; i<=numberOfButton; i++){
+    document.querySelectorAll(".drum")[i].addEventListener("click",function(){
 
-query.setAttribute("src",randomDiceImage1);
+        var buttonInnerHTML = this.innerHTML;
+      makeSound(buttonInnerHTML)
+
+    });
 
 
-//Dice 2
-var randomNumber2 = Math.floor(Math.random()*6)+1;
+        document.addEventListener("keypress",function(event){
+makeSound(event.key);
+});
+            function makeSound(key){
+                    switch(key){
+                        case "w":
+                            var tom1 = new Audio('sounds/tom-1.mp3');
+                            tom1.play();
+                            break;
+                
+                
+                            case "a":
+                                var tom2=new Audio('sounds/tom-2.mp3');
+                                tom2.play();
+                                break;
+                
+                            case "s":
+                                var tom3 = new Audio('sounds/tom-3.mp3');
+                                tom3.play();
+                                break;
+                
+                            case "d":
+                                var tom4 = new Audio('sounds/tom-4.mp3');
+                                tom4.play();
+                                break;
+                
+                            case "j":
+                                var crash = new Audio('sounds/crash.mp3');
+                                crash.play();
+                                break;
+                    
+                            case "k":
+                                var kick_bass = new Audio('sounds/kick-bass.mp3');
+                                kick_bass.play();
+                                break;
+                
+                            case "l":
+                                var snare = new Audio('sounds/snare.mp3');
+                                snare.play();
+                                break;
+                
+                                default:
+                                    console.log(buttonInnerHTML);
 
-var randomDiceImage2 = "images/dice" + randomNumber2 + ".png";
-
-var query = document.querySelectorAll("img")[1].setAttribute("src",randomDiceImage2);
-
-if(randomNumber1>randomNumber2){
-    document.querySelector("h1").innerHTML=("🚩player 1 Wins!");
+                    }
+                
+            }
+       
 }
-else if(randomNumber2>randomNumber1){
-    document.querySelector("h1").innerHTML=("player 2 Wins! 🚩");
-}
-else{
-    document.querySelector("h1").innerHTML=("🙂 Maths Draw!..");
-}
+
+
+
 
 
 
